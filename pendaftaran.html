@@ -345,14 +345,8 @@
             // Buka link WhatsApp
             window.open(waURL, '_blank');
 
-            // Cek apakah tombol join grup ada sebelum mengubah display-nya
-            const grupBtn = document.getElementById('btnGabungGrupContainer');
-            if (grupBtn) {
-                grupBtn.style.display = 'block';
-                grupBtn.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                console.warn('Elemen btnGabungGrupContainer tidak ditemukan!');
-            }
+            // langsung redirect ke halaman grup
+            window.location.href = 'join_grub.html';
         }
 
 
