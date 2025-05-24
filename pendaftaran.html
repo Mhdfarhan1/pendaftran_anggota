@@ -330,8 +330,7 @@
                 return;
             }
 
-            const nomorPanitia = "6282299841843"; // Nomor WA panitia
-
+            const nomorPanitia = "6282299841843";
             let pesan = `*Formulir Pendaftaran Anggota PIK-R*\n\n`;
             pesan += `Nama Lengkap: ${nama}\n`;
             pesan += `Tempat, Tanggal Lahir: ${tempat}, ${tanggal}\n`;
@@ -343,11 +342,19 @@
             const urlPesan = encodeURIComponent(pesan);
             const waURL = `https://api.whatsapp.com/send?phone=${nomorPanitia}&text=${urlPesan}`;
 
+            // Buka link WhatsApp
             window.open(waURL, '_blank');
 
-            // Tampilkan tombol gabung grup yang semula disembunyikan
-            document.getElementById('btnGabungGrupContainer').style.display = 'block';
+            // Cek apakah tombol join grup ada sebelum mengubah display-nya
+            const grupBtn = document.getElementById('btnGabungGrupContainer');
+            if (grupBtn) {
+                grupBtn.style.display = 'block';
+                grupBtn.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                console.warn('Elemen btnGabungGrupContainer tidak ditemukan!');
+            }
         }
+
 
     </script>
 
